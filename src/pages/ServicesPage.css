@@ -1,0 +1,162 @@
+.services-page {
+  width: 100%;
+}
+
+.services-hero {
+  background-color: var(--color-bg-light);
+  padding: 80px 0 48px 0;
+  text-align: center;
+}
+
+.services-hero h1 {
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 16px;
+}
+
+.services-hero .subtitle {
+  font-size: 18px;
+  color: var(--color-text-secondary);
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.service-section {
+  padding: 80px 0;
+}
+
+.service-section.bg-light {
+  background-color: var(--color-bg-light);
+}
+
+.service-section.bg-white {
+  background-color: var(--color-bg-white);
+}
+
+.service-content-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 64px;
+}
+
+.service-content-wrapper.row-reverse {
+  flex-direction: row-reverse;
+}
+
+.service-visual {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-container {
+  background-color: var(--color-primary-lighter, #EFF6FF);
+  border-radius: 16px;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.service-large-icon {
+  width: 64px;
+  height: 64px;
+  color: var(--color-primary);
+}
+
+.service-text {
+  flex: 1.5;
+}
+
+.service-text h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 8px;
+}
+
+.target-audience {
+  font-size: 15px;
+  color: var(--color-text-secondary);
+  font-style: italic;
+  margin-bottom: 16px;
+}
+
+.description {
+  font-size: 16px;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+.features-benefits-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 32px;
+}
+
+.list-block h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 16px;
+}
+
+.list-block ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list-block li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+  font-size: 15px;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+.list-icon {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+}
+
+.check-icon {
+  color: var(--color-primary);
+}
+
+.benefit-icon {
+  color: #10B981; /* Success Green */
+}
+
+.service-cta {
+  margin-top: 16px;
+}
+
+@media (max-width: 992px) {
+  .service-content-wrapper,
+  .service-content-wrapper.row-reverse {
+    flex-direction: column;
+    text-align: center;
+    gap: 48px;
+  }
+
+  .list-block ul {
+    text-align: left;
+  }
+
+  .features-benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}

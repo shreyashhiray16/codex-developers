@@ -1,0 +1,141 @@
+.contact-page {
+  width: 100%;
+}
+
+.contact-hero {
+  background-color: var(--color-bg-light);
+  padding: 80px 0 48px 0;
+  text-align: center;
+}
+
+.contact-hero h1 {
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 16px;
+}
+
+.contact-hero .subtitle {
+  font-size: 18px;
+  color: var(--color-text-secondary);
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.contact-content {
+  padding: 80px 0;
+  background-color: var(--color-bg-white);
+}
+
+.contact-layout {
+  display: flex;
+  gap: 48px;
+  align-items: flex-start;
+}
+
+.contact-form-col {
+  flex: 0 0 60%;
+}
+
+.contact-info-col {
+  flex: 0 0 calc(40% - 48px);
+}
+
+.contact-info-card {
+  background-color: var(--color-bg-light);
+  border-radius: 16px;
+  padding: 32px;
+  border: 1px solid var(--color-border);
+}
+
+.contact-info-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 32px;
+}
+
+.contact-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.method-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.method-icon-wrap {
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-primary-lighter, #EFF6FF);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.method-icon {
+  width: 20px;
+  height: 20px;
+  color: var(--color-primary);
+}
+
+.method-text {
+  flex-grow: 1;
+}
+
+.method-text h4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 4px;
+}
+
+.method-text p, .method-text a {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.method-text a:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+.business-hours {
+  border-top: 1px solid var(--color-border);
+  padding-top: 24px;
+}
+
+.business-hours h4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 8px;
+}
+
+.business-hours p {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  margin-bottom: 4px;
+}
+
+@media (max-width: 992px) {
+  .contact-layout {
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .contact-form-col, .contact-info-col {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+}

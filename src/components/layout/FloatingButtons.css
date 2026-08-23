@@ -1,0 +1,156 @@
+/* ========================================
+   FLOATING BUTTONS — Bottom Right (Icon Only)
+   ======================================== */
+
+.floating-buttons {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: var(--z-overlay);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 14px;
+}
+
+/* WhatsApp wrapper for tooltip positioning */
+.whatsapp-wrapper {
+  position: relative;
+}
+
+/* Base floating button — circular icon only */
+.floating-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: 50%;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  will-change: transform;
+}
+
+.floating-btn:hover {
+  transform: scale(1.1);
+}
+
+.floating-btn:active {
+  transform: scale(0.94);
+}
+
+/* Icon sizing */
+.floating-icon {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+/* ---- WhatsApp Button ---- */
+.whatsapp-btn {
+  background: #25D366;
+  color: #ffffff;
+  box-shadow:
+    0 4px 14px rgba(37, 211, 102, 0.4),
+    0 2px 6px rgba(0, 0, 0, 0.1);
+  animation: whatsapp-pulse 3s ease-in-out infinite;
+}
+
+.whatsapp-btn:hover {
+  background: #20BD5A;
+  box-shadow:
+    0 6px 20px rgba(37, 211, 102, 0.5),
+    0 3px 8px rgba(0, 0, 0, 0.12);
+}
+
+/* ---- WhatsApp Tooltip ---- */
+.whatsapp-tooltip {
+  position: absolute;
+  right: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%) translateX(8px);
+  background: #111827;
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+  font-family: var(--font-family);
+  font-size: 14px;
+  font-weight: var(--font-weight-semibold);
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.whatsapp-tooltip.visible {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+.tooltip-arrow {
+  position: absolute;
+  right: -6px;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  width: 12px;
+  height: 12px;
+  background: #111827;
+}
+
+/* ---- Instagram Button ---- */
+.instagram-btn {
+  background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  color: #ffffff;
+  box-shadow:
+    0 4px 14px rgba(225, 48, 108, 0.35),
+    0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.instagram-btn:hover {
+  background: linear-gradient(135deg, #e8880e, #d4572e, #c91e38, #b81c5a, #a81480);
+  box-shadow:
+    0 6px 20px rgba(225, 48, 108, 0.45),
+    0 3px 8px rgba(0, 0, 0, 0.12);
+}
+
+/* ---- Subtle pulse for WhatsApp ---- */
+@keyframes whatsapp-pulse {
+  0%, 100% {
+    box-shadow:
+      0 4px 14px rgba(37, 211, 102, 0.4),
+      0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    box-shadow:
+      0 4px 22px rgba(37, 211, 102, 0.55),
+      0 2px 8px rgba(0, 0, 0, 0.12);
+  }
+}
+
+/* ---- Focus states ---- */
+.floating-btn:focus-visible {
+  outline: 2px solid var(--color-text-white);
+  outline-offset: 3px;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+  .floating-buttons {
+    bottom: 20px;
+    right: 16px;
+    gap: 12px;
+  }
+
+  .floating-btn {
+    width: 50px;
+    height: 50px;
+  }
+
+  .floating-icon {
+    width: 24px;
+    height: 24px;
+  }
+}

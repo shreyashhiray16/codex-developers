@@ -1,0 +1,36 @@
+.card {
+  background-color: white;
+  border-radius: var(--radius-2xl, 20px);
+  transition: all var(--transition-base, 250ms) ease;
+}
+
+.card-default {
+  border: 1px solid var(--color-border, #E5E7EB);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.card-bordered {
+  border: 2px solid var(--color-border, #E5E7EB);
+}
+
+.card-elevated {
+  border: 1px solid transparent;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.card-pad-sm {
+  padding: 16px;
+}
+
+.card-pad-md {
+  padding: 24px;
+}
+
+.card-pad-lg {
+  padding: 32px;
+}
