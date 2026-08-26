@@ -15,7 +15,7 @@
 }
 
 .testimonial-quote-icon-large {
-  color: var(--color-primary-lighter, #93C5FD);
+  color: var(--color-primary-light, #5B8CFF);
   margin-bottom: var(--space-6);
   opacity: 0.5;
 }
@@ -53,7 +53,7 @@
 }
 
 .testimonial-quote-icon {
-  color: var(--color-primary-lighter, #93C5FD);
+  color: var(--color-primary-light, #5B8CFF);
   margin-bottom: var(--space-4);
 }
 

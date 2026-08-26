@@ -17,22 +17,33 @@
   margin: 0;
 }
 
-.trust-grid {
+.trust-marquee {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+.trust-track {
   display: flex;
-  justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
-  gap: var(--space-8, 2rem) var(--space-12, 3rem);
+  width: max-content;
+  gap: 3.5rem 5rem;
+  white-space: nowrap;
+  will-change: transform;
+  animation: trustScroll 18s linear infinite;
 }
 
 .trust-item {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: var(--space-3, 0.75rem);
+  flex-shrink: 0;
 }
 
 .trust-icon {
-  color: var(--color-primary, #2563EB);
+  color: var(--color-primary, #2E6BFF);
   flex-shrink: 0;
 }
 
@@ -42,25 +53,26 @@
   color: var(--color-text-primary, #111827);
 }
 
+@keyframes trustScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 /* Responsive */
 @media (max-width: 768px) {
-  .trust-grid {
-    grid-template-columns: repeat(2, 1fr);
-    display: grid;
-    gap: var(--space-6, 1.5rem);
-  }
-  
-  .trust-item {
-    justify-content: center;
+  .trust-track {
+    gap: 2.5rem 3rem;
+    animation-duration: 16s;
   }
 }
 
 @media (max-width: 480px) {
-  .trust-grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-4, 1rem);
-  }
-  .trust-item {
-    justify-content: flex-start;
+  .trust-track {
+    gap: 1.75rem 2.25rem;
+    animation-duration: 14s;
   }
 }

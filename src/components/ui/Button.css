@@ -13,7 +13,7 @@
 }
 
 .btn:focus-visible {
-  outline: 2px solid var(--color-primary, #2563EB);
+  outline: 2px solid var(--color-primary, #2E6BFF);
   outline-offset: 2px;
 }
 
@@ -43,24 +43,24 @@
 }
 
 .btn-primary {
-  background-color: var(--color-primary, #2563EB);
+  background-color: var(--color-primary, #2E6BFF);
   color: white;
   border: 1px solid transparent;
 }
 
 .btn-primary:hover:not(:disabled) {
-  background-color: #1d4ed8;
-  box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2), 0 2px 4px -1px rgba(37, 99, 235, 0.1);
+  background-color: var(--color-primary-dark, #1E4FD6);
+  box-shadow: 0 4px 6px -1px rgba(46, 107, 255, 0.2), 0 2px 4px -1px rgba(46, 107, 255, 0.1);
 }
 
 .btn-secondary {
   background-color: white;
-  color: var(--color-primary, #2563EB);
-  border: 1px solid var(--color-primary, #2563EB);
+  color: var(--color-primary, #2E6BFF);
+  border: 1px solid var(--color-primary, #2E6BFF);
 }
 
 .btn-secondary:hover:not(:disabled) {
-  background-color: #eff6ff;
+  background-color: var(--color-primary-subtle, #EEF5FF);
 }
 
 .btn-outline {
@@ -75,10 +75,10 @@
 
 .btn-ghost {
   background-color: transparent;
-  color: var(--color-primary, #2563EB);
+  color: var(--color-primary, #2E6BFF);
   border: 1px solid transparent;
 }
 
 .btn-ghost:hover:not(:disabled) {
-  background-color: #eff6ff;
+  background-color: var(--color-primary-subtle, #EEF5FF);
 }

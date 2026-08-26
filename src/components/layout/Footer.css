@@ -58,8 +58,8 @@
 }
 
 .social-btn:hover {
-  background-color: var(--color-primary, #2563EB);
-  border-color: var(--color-primary, #2563EB);
+  background-color: var(--color-primary, #2E6BFF);
+  border-color: var(--color-primary, #2E6BFF);
 }
 
 .footer-heading {

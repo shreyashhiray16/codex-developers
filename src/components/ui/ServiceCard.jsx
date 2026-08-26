@@ -21,8 +21,14 @@ const iconMap = {
 const ServiceCard = ({ service }) => {
   const IconComponent = iconMap[service.icon] || Code;
 
+  const handlePointerMove = (event) => {
+    const bounds = event.currentTarget.getBoundingClientRect();
+    event.currentTarget.style.setProperty('--mouse-x', `${event.clientX - bounds.left}px`);
+    event.currentTarget.style.setProperty('--mouse-y', `${event.clientY - bounds.top}px`);
+  };
+
   return (
-    <div className="service-card">
+    <div className="service-card" onPointerMove={handlePointerMove}>
       <div className="service-icon-wrapper">
         <IconComponent size={24} className="service-icon" />
       </div>

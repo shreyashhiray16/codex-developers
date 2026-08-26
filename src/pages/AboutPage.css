@@ -105,7 +105,7 @@
 .value-icon-wrap {
   width: 44px;
   height: 44px;
-  background-color: var(--color-primary-lighter, #EFF6FF);
+  background-color: var(--color-primary-subtle, #EEF5FF);
   border-radius: 12px;
   display: flex;
   align-items: center;

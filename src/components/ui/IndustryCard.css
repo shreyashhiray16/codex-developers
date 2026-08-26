@@ -10,11 +10,11 @@
 .industry-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  border-color: #bfdbfe;
+  border-color: var(--color-primary-lighter, #DCE9FF);
 }
 
 .industry-icon-wrapper {
-  color: var(--color-primary, #2563EB);
+  color: var(--color-primary, #2E6BFF);
   margin-bottom: 16px;
 }
 

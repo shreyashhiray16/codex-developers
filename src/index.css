@@ -5,18 +5,22 @@
 /* --- CSS Custom Properties --- */
 :root {
   /* Brand Colors */
-  --color-primary: #2563EB;
-  --color-primary-dark: #1E40AF;
-  --color-primary-darker: #1E3A8A;
-  --color-primary-light: #3B82F6;
-  --color-primary-lighter: #DBEAFE;
-  --color-primary-subtle: #EFF6FF;
+  --color-primary: #2E6BFF;
+  --color-primary-dark: #1E4FD6;
+  --color-primary-darker: #1E4FD6;
+  --color-primary-light: #5B8CFF;
+  --color-primary-lighter: #DCE9FF;
+  --color-primary-subtle: #EEF5FF;
+
+  /* Neon Accent Colors */
+  --color-neon: #00D4FF;
+  --color-neon-soft: rgba(0, 212, 255, 0.35);
 
   /* Neutral Colors */
   --color-text-primary: #111827;
   --color-text-secondary: #374151;
   --color-text-tertiary: #4B5563;
-  --color-text-muted: #6B7280;
+  --color-text-muted: #2f080a;
   --color-text-light: #9CA3AF;
   --color-text-white: #FFFFFF;
 
@@ -104,8 +108,8 @@
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
   --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-  --shadow-primary: 0 4px 14px rgba(37, 99, 235, 0.25);
-  --shadow-primary-lg: 0 8px 25px rgba(37, 99, 235, 0.3);
+  --shadow-primary: 0 4px 14px rgba(46, 107, 255, 0.25);
+  --shadow-primary-lg: 0 8px 25px rgba(46, 107, 255, 0.3);
 
   /* Transitions */
   --transition-fast: 150ms ease;

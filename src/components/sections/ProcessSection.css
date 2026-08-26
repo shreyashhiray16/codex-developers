@@ -14,7 +14,7 @@
   left: 0;
   right: 0;
   height: 2px;
-  background: dashed 2px var(--color-primary-subtle, #DBEAFE);
+  background: dashed 2px var(--color-primary-subtle, #EEF5FF);
   z-index: 1;
 }
 
@@ -36,7 +36,7 @@
 .step-marker {
   width: 56px;
   height: 56px;
-  background-color: var(--color-primary, #2563EB);
+  background-color: var(--color-primary, #2E6BFF);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -52,7 +52,7 @@
 
 .step-icon {
   margin-bottom: var(--space-3, 0.75rem);
-  color: var(--color-primary, #2563EB);
+  color: var(--color-primary, #2E6BFF);
 }
 
 .step-title {

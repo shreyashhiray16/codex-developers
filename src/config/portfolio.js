@@ -5,6 +5,7 @@ export const portfolio = [
     category: 'Website Development',
     description: 'A structured multi-page corporate website designed for a professional services company.',
     tags: ['Multi-page', 'Corporate', 'Responsive'],
+    image: '/portfolio/corporate-website.png',
     isSample: true,
   },
   {
@@ -13,6 +14,7 @@ export const portfolio = [
     category: 'Website Development',
     description: 'A comprehensive website for an industrial manufacturer, showcasing products, capabilities, and certifications.',
     tags: ['Industrial', 'Product Catalog', 'Multi-page'],
+    image: '/portfolio/industrial-website.png',
     isSample: true,
   },
   {
@@ -21,6 +23,7 @@ export const portfolio = [
     category: 'Landing Pages',
     description: 'A high-conversion landing page designed for a product launch campaign with strong lead-capture forms.',
     tags: ['Landing Page', 'Conversion', 'Lead Generation'],
+    image: '/portfolio/product-landing-page.png',
     isSample: true,
   },
   {
@@ -29,6 +32,7 @@ export const portfolio = [
     category: 'E-commerce',
     description: 'A user-friendly online store with product catalog, secure checkout, and order management dashboard.',
     tags: ['E-commerce', 'Online Store', 'Payments'],
+    image: '/portfolio/ecommerce-store.png',
     isSample: true,
   },
   {
@@ -37,6 +41,7 @@ export const portfolio = [
     category: 'Business Software',
     description: 'A practical billing application with GST-compliant invoicing, payment tracking, and sales reports.',
     tags: ['Billing', 'Invoicing', 'Offline'],
+    image: '/portfolio/billing-software.png',
     isSample: true,
   },
   {
@@ -45,6 +50,7 @@ export const portfolio = [
     category: 'Business Software',
     description: 'An inventory management dashboard with stock tracking, purchase management, and real-time alerts.',
     tags: ['Inventory', 'Dashboard', 'Analytics'],
+    image: '/portfolio/inventory-dashboard.png',
     isSample: true,
   },
 ]

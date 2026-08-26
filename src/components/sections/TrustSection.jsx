@@ -11,6 +11,8 @@ const TrustSection = () => {
     { id: 4, title: 'Reliable Support', Icon: Headphones },
   ];
 
+  const duplicatedBenefits = [...benefits, ...benefits];
+
   return (
     <section className="trust-section section section--light">
       <div className="container">
@@ -19,19 +21,21 @@ const TrustSection = () => {
             <p>Technology solutions for businesses that are ready to move forward.</p>
           </div>
         </ScrollReveal>
-        
-        <div className="trust-grid">
-          {benefits.map((benefit, index) => {
-            const { Icon, title } = benefit;
-            return (
-              <ScrollReveal key={benefit.id} delay={index * 100}>
-                <div className="trust-item">
-                  <Icon className="trust-icon" size={24} />
-                  <span className="trust-title">{title}</span>
-                </div>
-              </ScrollReveal>
-            );
-          })}
+
+        <div className="trust-marquee" aria-label="Business trust highlights">
+          <div className="trust-track">
+            {duplicatedBenefits.map((benefit, index) => {
+              const { Icon, title } = benefit;
+              return (
+                <ScrollReveal key={`${benefit.id}-${index}`} delay={index * 60}>
+                  <div className="trust-item" aria-hidden={index >= benefits.length}>
+                    <Icon className="trust-icon" size={24} />
+                    <span className="trust-title">{title}</span>
+                  </div>
+                </ScrollReveal>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

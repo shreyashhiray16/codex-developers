@@ -17,7 +17,7 @@ const HeroSection = () => {
           playsInline
           preload="auto"
         >
-          <source src="/videos/videobackground.mp4" type="video/mp4" />
+          <source src="/videos/same_but_with_duration_of_se.mp4" type="video/mp4" />
         </video>
         <div className="hero-video-overlay"></div>
       </div>

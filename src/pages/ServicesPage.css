@@ -53,7 +53,7 @@
 }
 
 .icon-container {
-  background-color: var(--color-primary-lighter, #EFF6FF);
+  background-color: var(--color-primary-subtle, #EEF5FF);
   border-radius: 16px;
   width: 200px;
   height: 200px;

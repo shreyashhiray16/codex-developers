@@ -49,20 +49,21 @@
   z-index: 1;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: var(--space-12, 3rem);
 }
 
 .hero-content {
   flex: 0 0 55%;
   max-width: 55%;
+  text-align: left;
 }
 
 .hero-trust-label {
   display: inline-block;
   font-size: 13px;
   font-weight: 600;
-  color: #93C5FD;
+  color: var(--color-primary-light, #5B8CFF);
   background-color: rgba(59, 130, 246, 0.12);
   border: 1px solid rgba(147, 197, 253, 0.25);
   padding: 6px 14px;
@@ -296,7 +297,7 @@
 
 .chart-bar {
   width: 15%;
-  background-color: var(--color-primary, #2563EB);
+  background-color: var(--color-primary, #2E6BFF);
   border-radius: 2px 2px 0 0;
   opacity: 0.8;
 }
@@ -375,11 +376,11 @@
     max-width: 800px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
   }
 
   .hero-actions {
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   .hero-visual {

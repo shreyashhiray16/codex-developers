@@ -6,6 +6,7 @@ const Button = ({
   children,
   variant = 'primary',
   size = 'md',
+  to,
   href,
   icon: Icon,
   iconPosition = 'left',
@@ -17,6 +18,7 @@ const Button = ({
   ariaLabel,
 }) => {
   const baseClasses = `btn btn-${variant} btn-${size} ${fullWidth ? 'btn-full-width' : ''} ${className}`;
+  const linkTarget = to || href;
 
   const content = (
     <>
@@ -26,9 +28,9 @@ const Button = ({
     </>
   );
 
-  if (href) {
+  if (linkTarget) {
     return (
-      <Link to={href} className={baseClasses} onClick={onClick} aria-label={ariaLabel}>
+      <Link to={linkTarget} className={baseClasses} onClick={onClick} aria-label={ariaLabel}>
         {content}
       </Link>
     );

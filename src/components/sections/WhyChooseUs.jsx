@@ -27,6 +27,18 @@ const reasons = [
 const WhyChooseUs = () => {
   return (
     <section id="why-us" className="why-us-section section section--light">
+      <video
+        className="why-us-background-video"
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+        aria-hidden="true"
+      >
+        <source src="/videos/send_video_of_only_the_earth_a.mp4" type="video/mp4" />
+      </video>
+      <div className="why-us-video-overlay"></div>
       <div className="container">
         <div className="why-us-layout">
           <div className="why-us-content">
@@ -58,25 +70,6 @@ const WhyChooseUs = () => {
             </div>
           </div>
           
-          <div className="why-us-visual">
-            <ScrollReveal delay={200} className="visual-wrapper">
-              <div className="abstract-graphic">
-                <div className="node node-center">
-                  <div className="pulse-ring"></div>
-                </div>
-                <div className="node node-1"><Code2 size={24} /></div>
-                <div className="node node-2"><TrendingUp size={24} /></div>
-                <div className="node node-3"><Monitor size={24} /></div>
-                <div className="node node-4"><Smartphone size={24} /></div>
-                <svg className="connections" width="100%" height="100%">
-                  <line x1="50%" y1="50%" x2="20%" y2="20%" stroke="var(--color-primary-subtle)" strokeWidth="2" strokeDasharray="5,5" />
-                  <line x1="50%" y1="50%" x2="80%" y2="30%" stroke="var(--color-primary-subtle)" strokeWidth="2" strokeDasharray="5,5" />
-                  <line x1="50%" y1="50%" x2="30%" y2="80%" stroke="var(--color-primary-subtle)" strokeWidth="2" strokeDasharray="5,5" />
-                  <line x1="50%" y1="50%" x2="75%" y2="75%" stroke="var(--color-primary-subtle)" strokeWidth="2" strokeDasharray="5,5" />
-                </svg>
-              </div>
-            </ScrollReveal>
-          </div>
         </div>
       </div>
     </section>

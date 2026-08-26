@@ -13,8 +13,8 @@
 .section-label {
   display: inline-block;
   font-size: 13px;
-  color: var(--color-primary, #2563EB);
-  background-color: var(--color-primary-subtle, #EFF6FF);
+  color: var(--color-primary, #2E6BFF);
+  background-color: var(--color-primary-subtle, #EEF5FF);
   font-weight: 600;
   letter-spacing: var(--letter-spacing-wide, 0.014em);
   padding: 6px 14px;
@@ -60,5 +60,5 @@
 }
 
 .light-mode .section-label {
-  color: #93c5fd;
+  color: var(--color-primary-light, #5B8CFF);
 }

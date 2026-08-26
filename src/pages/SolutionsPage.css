@@ -61,7 +61,7 @@
 .solution-icon-wrap {
   width: 56px;
   height: 56px;
-  background-color: var(--color-primary-lighter, #EFF6FF);
+  background-color: var(--color-primary-subtle, #EEF5FF);
   border-radius: 50%;
   display: flex;
   align-items: center;
