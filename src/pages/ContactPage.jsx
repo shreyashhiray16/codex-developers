@@ -1,19 +1,17 @@
-import React, { useEffect } from 'react';
 import ContactForm from '../components/ui/ContactForm';
 import ScrollReveal from '../components/ui/ScrollReveal';
 import { company } from '../config/company';
 import { MessageCircle, Phone, Mail } from 'lucide-react';
+import { usePageTitle } from '../hooks/usePageTitle';
 import './ContactPage.css';
 
 const ContactPage = () => {
-  useEffect(() => {
-    document.title = 'Contact Us — Codex Developers';
-  }, []);
+  usePageTitle('Contact Us — Codex Developers');
 
   return (
-    <main className="contact-page">
-      <section className="contact-hero">
-        <div className="container">
+    <div className="contact-page">
+      <section className="contact-content page-section-photo">
+        <div className="container page-section-heading">
           <ScrollReveal>
             <h1>Contact Us</h1>
             <p className="subtitle">
@@ -21,9 +19,7 @@ const ContactPage = () => {
             </p>
           </ScrollReveal>
         </div>
-      </section>
 
-      <section className="contact-content bg-white">
         <div className="container">
           <ScrollReveal>
             <div className="contact-layout">
@@ -84,7 +80,7 @@ const ContactPage = () => {
           </ScrollReveal>
         </div>
       </section>
-    </main>
+    </div>
   );
 };
 

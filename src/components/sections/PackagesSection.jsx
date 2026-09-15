@@ -16,7 +16,7 @@ const iconMap = {
 
 const PackagesSection = () => {
   return (
-    <section id="packages" className="section packages-section bg-light">
+    <section id="packages" className="section packages-section page-section-photo">
       <div className="container">
         <ScrollReveal>
           <SectionHeader 

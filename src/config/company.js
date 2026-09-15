@@ -24,7 +24,7 @@ export const company = {
   legal: {
     copyright: `© ${new Date().getFullYear()} Codex Developers. All rights reserved.`,
     privacyPolicy: '/privacy-policy',
-    termsOfService: '/terms-of-service',
+    termsOfService: '/terms',
   },
 
   navigation: [

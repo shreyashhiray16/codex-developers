@@ -3,24 +3,26 @@ import { X } from 'lucide-react';
 import { services } from '../../config/services';
 import './ConsultationModal.css';
 
+const emptyForm = {
+  name: '',
+  phone: '',
+  place: '',
+  service: '',
+  website: '',
+};
+
 const ConsultationModal = ({ isOpen, onClose }) => {
-  const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    place: '',
-    service: '',
-  });
+  const [formData, setFormData] = useState(emptyForm);
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState('');
   const modalRef = useRef(null);
   const firstInputRef = useRef(null);
 
-  // Lock body scroll when open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
-      // Focus first input after opening
       setTimeout(() => firstInputRef.current?.focus(), 100);
     } else {
       document.body.style.overflow = 'unset';
@@ -28,11 +30,36 @@ const ConsultationModal = ({ isOpen, onClose }) => {
     return () => { document.body.style.overflow = 'unset'; };
   }, [isOpen]);
 
-  // Close on Escape key
   useEffect(() => {
-    const handleEsc = (e) => { if (e.key === 'Escape') onClose(); };
-    if (isOpen) window.addEventListener('keydown', handleEsc);
-    return () => window.removeEventListener('keydown', handleEsc);
+    if (!isOpen) return undefined;
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        onClose();
+        return;
+      }
+
+      if (e.key !== 'Tab' || !modalRef.current) return;
+
+      const focusable = modalRef.current.querySelectorAll(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      );
+      if (focusable.length === 0) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isOpen, onClose]);
 
   const handleChange = (e) => {
@@ -54,24 +81,36 @@ const ConsultationModal = ({ isOpen, onClose }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!validate()) return;
+    if (!validate() || submitting) return;
     setSubmitError('');
+    setSubmitting(true);
 
     fetch('/api/consultations', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData),
+      body: JSON.stringify({
+        type: 'consultation',
+        name: formData.name.trim(),
+        phone: formData.phone.trim(),
+        place: formData.place.trim(),
+        service: formData.service,
+        website: formData.website,
+      }),
     })
       .then(response => {
         if (!response.ok) throw new Error('Unable to submit consultation');
         setSubmitted(true);
         setTimeout(() => {
           setSubmitted(false);
-          setFormData({ name: '', phone: '', place: '', service: '' });
+          setFormData(emptyForm);
+          setSubmitting(false);
           onClose();
         }, 3000);
       })
-      .catch(() => setSubmitError('Something went wrong. Please try again.'));
+      .catch(() => {
+        setSubmitError('Something went wrong. Please try again.');
+        setSubmitting(false);
+      });
   };
 
   const handleOverlayClick = (e) => {
@@ -101,6 +140,19 @@ const ConsultationModal = ({ isOpen, onClose }) => {
             </div>
 
             <form className="modal-form" onSubmit={handleSubmit} noValidate>
+              <div className="honeypot-field" aria-hidden="true">
+                <label htmlFor="consult-website">Website</label>
+                <input
+                  id="consult-website"
+                  type="text"
+                  name="website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={formData.website}
+                  onChange={handleChange}
+                />
+              </div>
+
               <div className="modal-field">
                 <label htmlFor="consult-name">Your Name <span className="required">*</span></label>
                 <input
@@ -112,6 +164,7 @@ const ConsultationModal = ({ isOpen, onClose }) => {
                   placeholder="Enter your full name"
                   value={formData.name}
                   onChange={handleChange}
+                  disabled={submitting}
                 />
                 {errors.name && <span className="field-error">{errors.name}</span>}
               </div>
@@ -126,6 +179,7 @@ const ConsultationModal = ({ isOpen, onClose }) => {
                   placeholder="+91 XXXXX XXXXX"
                   value={formData.phone}
                   onChange={handleChange}
+                  disabled={submitting}
                 />
                 {errors.phone && <span className="field-error">{errors.phone}</span>}
               </div>
@@ -140,6 +194,7 @@ const ConsultationModal = ({ isOpen, onClose }) => {
                   placeholder="e.g. Mumbai, Delhi, Pune"
                   value={formData.place}
                   onChange={handleChange}
+                  disabled={submitting}
                 />
                 {errors.place && <span className="field-error">{errors.place}</span>}
               </div>
@@ -152,6 +207,7 @@ const ConsultationModal = ({ isOpen, onClose }) => {
                   className={`form-select ${errors.service ? 'error' : ''}`}
                   value={formData.service}
                   onChange={handleChange}
+                  disabled={submitting}
                 >
                   <option value="">Select a service</option>
                   {services.map(s => (
@@ -162,8 +218,8 @@ const ConsultationModal = ({ isOpen, onClose }) => {
                 {errors.service && <span className="field-error">{errors.service}</span>}
               </div>
 
-              <button type="submit" className="btn btn-primary btn-lg modal-submit-btn">
-                Submit Request
+              <button type="submit" className="btn btn-primary btn-lg modal-submit-btn" disabled={submitting}>
+                {submitting ? 'Submitting...' : 'Submit Request'}
               </button>
               {submitError && <span className="field-error modal-submit-error">{submitError}</span>}
             </form>

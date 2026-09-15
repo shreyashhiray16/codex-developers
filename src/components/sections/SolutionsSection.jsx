@@ -7,7 +7,7 @@ import './SolutionsSection.css';
 
 const SolutionsSection = () => {
   return (
-    <section id="solutions" className="solutions-section section section--light">
+    <section id="solutions" className="solutions-section section page-section-photo">
       <div className="container">
         <ScrollReveal>
           <SectionHeader 

@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react';
 import HeroSection from '../components/sections/HeroSection';
 import TrustSection from '../components/sections/TrustSection';
 import ServicesOverview from '../components/sections/ServicesOverview';
@@ -11,14 +10,13 @@ import TestimonialsSection from '../components/sections/TestimonialsSection';
 import PackagesSection from '../components/sections/PackagesSection';
 import FAQSection from '../components/sections/FAQSection';
 import CTASection from '../components/sections/CTASection';
+import { usePageTitle } from '../hooks/usePageTitle';
 
 const HomePage = () => {
-  useEffect(() => {
-    document.title = 'Codex Developers — Digital Solutions That Help Your Business Grow';
-  }, []);
+  usePageTitle('Codex Developers — Digital Solutions That Help Your Business Grow');
 
   return (
-    <main>
+    <div>
       <HeroSection />
       <TrustSection />
       <ServicesOverview />
@@ -31,7 +29,7 @@ const HomePage = () => {
       <PackagesSection />
       <FAQSection />
       <CTASection />
-    </main>
+    </div>
   );
 };
 

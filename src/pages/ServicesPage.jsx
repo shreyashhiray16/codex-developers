@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { services } from '../config/services';
 import ScrollReveal from '../components/ui/ScrollReveal';
 import Button from '../components/ui/Button';
 import CTASection from '../components/sections/CTASection';
 import * as Icons from 'lucide-react';
 import { Check, CheckCircle, ArrowRight } from 'lucide-react';
+import { usePageTitle } from '../hooks/usePageTitle';
 import './ServicesPage.css';
 
 const DynamicIcon = ({ name, className }) => {
@@ -13,10 +14,9 @@ const DynamicIcon = ({ name, className }) => {
 };
 
 const ServicesPage = () => {
+  usePageTitle('Services — Codex Developers');
+
   useEffect(() => {
-    document.title = 'Services — Codex Developers';
-    
-    // Scroll to hash if present
     if (window.location.hash) {
       const id = window.location.hash.substring(1);
       setTimeout(() => {
@@ -29,9 +29,9 @@ const ServicesPage = () => {
   }, []);
 
   return (
-    <main className="services-page">
-      <section className="services-hero">
-        <div className="container">
+    <div className="services-page">
+      <section className="services-list page-section-photo">
+        <div className="container page-section-heading">
           <ScrollReveal>
             <h1>Our Services</h1>
             <p className="subtitle">
@@ -39,9 +39,7 @@ const ServicesPage = () => {
             </p>
           </ScrollReveal>
         </div>
-      </section>
 
-      <section className="services-list">
         {services.map((service, index) => {
           const isEven = index % 2 !== 0; // 0-indexed, so 1 is even visually for alternate layout
           return (
@@ -54,15 +52,26 @@ const ServicesPage = () => {
                 <ScrollReveal>
                   <div className={`service-content-wrapper ${isEven ? 'row-reverse' : ''}`}>
                     <div className="service-visual">
-                      <div className="icon-container">
-                        <DynamicIcon name={service.icon} className="service-large-icon" />
-                      </div>
+                      {service.image ? (
+                        <div className="service-image-frame">
+                          <img
+                            src={service.image}
+                            alt={`${service.title} preview`}
+                            className="service-image"
+                            loading="lazy"
+                          />
+                        </div>
+                      ) : (
+                        <div className="icon-container">
+                          <DynamicIcon name={service.icon} className="service-large-icon" />
+                        </div>
+                      )}
                     </div>
                     
                     <div className="service-text">
                       <h2>{service.title}</h2>
                       <p className="target-audience">For: {service.targetAudience}</p>
-                      <p className="description">{service.description}</p>
+                      <p className="description">{service.fullDescription || service.description}</p>
                       
                       <div className="features-benefits-grid">
                         <div className="list-block">
@@ -105,7 +114,7 @@ const ServicesPage = () => {
       </section>
 
       <CTASection />
-    </main>
+    </div>
   );
 };
 

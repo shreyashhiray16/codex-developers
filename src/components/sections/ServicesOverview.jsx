@@ -8,7 +8,7 @@ import './ServicesOverview.css';
 
 const ServicesOverview = () => {
   return (
-    <section id="services" className="services-overview section">
+    <section id="services" className="services-overview section page-section-photo">
       <div className="container">
         <SectionHeader 
           label="Our Services"

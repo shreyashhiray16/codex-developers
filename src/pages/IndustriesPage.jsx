@@ -1,10 +1,9 @@
-import React, { useEffect } from 'react';
 import { industries } from '../config/industries';
 import ScrollReveal from '../components/ui/ScrollReveal';
-import Button from '../components/ui/Button';
 import CTASection from '../components/sections/CTASection';
 import * as Icons from 'lucide-react';
 import { ChevronRight } from 'lucide-react';
+import { usePageTitle } from '../hooks/usePageTitle';
 import './IndustriesPage.css';
 
 const DynamicIcon = ({ name, className }) => {
@@ -13,14 +12,12 @@ const DynamicIcon = ({ name, className }) => {
 };
 
 const IndustriesPage = () => {
-  useEffect(() => {
-    document.title = 'Industries — Codex Developers';
-  }, []);
+  usePageTitle('Industries — Codex Developers');
 
   return (
-    <main className="industries-page">
-      <section className="industries-hero">
-        <div className="container">
+    <div className="industries-page">
+      <section className="industries-content page-section-photo">
+        <div className="container page-section-heading">
           <ScrollReveal>
             <h1>Industries We Serve</h1>
             <p className="subtitle">
@@ -28,9 +25,7 @@ const IndustriesPage = () => {
             </p>
           </ScrollReveal>
         </div>
-      </section>
 
-      <section className="industries-content">
         <div className="container">
           <div className="industries-grid">
             {industries.map((industry, index) => (
@@ -72,7 +67,7 @@ const IndustriesPage = () => {
       </section>
 
       <CTASection />
-    </main>
+    </div>
   );
 };
 

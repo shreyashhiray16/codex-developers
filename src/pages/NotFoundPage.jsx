@@ -1,14 +1,12 @@
-import React, { useEffect } from 'react';
 import Button from '../components/ui/Button';
+import { usePageTitle } from '../hooks/usePageTitle';
 import './NotFoundPage.css';
 
 const NotFoundPage = () => {
-  useEffect(() => {
-    document.title = '404 — Page Not Found — Codex Developers';
-  }, []);
+  usePageTitle('404 — Page Not Found — Codex Developers');
 
   return (
-    <main className="not-found-page">
+    <div className="not-found-page">
       <div className="container">
         <div className="not-found-content">
           <div className="error-code">404</div>
@@ -26,7 +24,7 @@ const NotFoundPage = () => {
           </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 };
 

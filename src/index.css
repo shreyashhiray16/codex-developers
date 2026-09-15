@@ -20,7 +20,7 @@
   --color-text-primary: #111827;
   --color-text-secondary: #374151;
   --color-text-tertiary: #4B5563;
-  --color-text-muted: #2f080a;
+  --color-text-muted: #6B7280;
   --color-text-light: #9CA3AF;
   --color-text-white: #FFFFFF;
 
@@ -267,6 +267,124 @@ p {
   color: rgba(255, 255, 255, 0.8);
 }
 
+/* Shared photo heroes for inner pages */
+.page-hero-photo {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  text-align: center;
+  padding: 80px 0 48px;
+  background-color: #0f172a;
+}
+
+.page-hero-photo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image: var(--hero-bg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: scale(1.02);
+}
+
+.page-hero-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(180deg, rgba(17, 24, 39, 0.52) 0%, rgba(17, 24, 39, 0.6) 100%),
+    linear-gradient(135deg, rgba(46, 107, 255, 0.26), rgba(15, 23, 42, 0.18));
+}
+
+.page-hero-photo .container {
+  position: relative;
+  z-index: 1;
+}
+
+.page-hero-photo h1 {
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+.page-hero-photo .subtitle,
+.page-hero-photo p {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* Full-section photo panels (same treatment as Industries) */
+.page-section-photo {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background-color: #0f172a;
+}
+
+.page-section-photo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image: var(--section-bg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: scale(1.02);
+}
+
+.page-section-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(180deg, rgba(17, 24, 39, 0.5) 0%, rgba(17, 24, 39, 0.58) 100%),
+    linear-gradient(135deg, rgba(46, 107, 255, 0.24), rgba(15, 23, 42, 0.16));
+}
+
+.page-section-photo > * {
+  position: relative;
+  z-index: 1;
+}
+
+.page-section-photo .section-label {
+  background-color: rgba(255, 255, 255, 0.92);
+}
+
+.page-section-photo .section-title {
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+.page-section-photo .section-subtitle {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.page-section-heading {
+  text-align: center;
+  padding: 72px 0 40px;
+}
+
+.page-section-heading h1 {
+  margin: 0 0 16px;
+  color: #ffffff;
+  font-size: 40px;
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+.page-section-heading .subtitle,
+.page-section-heading p {
+  margin: 0 auto;
+  max-width: 720px;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+
 /* --- Accessibility --- */
 .visually-hidden {
   position: absolute;
@@ -434,6 +552,15 @@ p {
   border-radius: var(--radius-md);
   font-weight: var(--font-weight-medium);
   text-align: center;
+}
+
+.honeypot-field {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
 /* --- Selection --- */

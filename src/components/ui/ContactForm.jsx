@@ -3,17 +3,19 @@ import Button from './Button';
 import { services } from '../../config/services';
 import './ContactForm.css';
 
-const ContactForm = () => {
-  const [formData, setFormData] = useState({
-    fullName: '',
-    companyName: '',
-    email: '',
-    phone: '',
-    serviceRequired: '',
-    budgetRange: '',
-    projectDescription: '',
-  });
+const emptyForm = {
+  fullName: '',
+  companyName: '',
+  email: '',
+  phone: '',
+  serviceRequired: '',
+  budgetRange: '',
+  projectDescription: '',
+  website: '',
+};
 
+const ContactForm = () => {
+  const [formData, setFormData] = useState(emptyForm);
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState('idle');
 
@@ -34,31 +36,48 @@ const ContactForm = () => {
       newErrors.email = 'Email is invalid';
     }
     if (!formData.phone.trim()) newErrors.phone = 'Phone Number is required';
+    else if (!/^[+]?[\d\s-]{8,15}$/.test(formData.phone.trim())) {
+      newErrors.phone = 'Please enter a valid phone number';
+    }
     if (!formData.projectDescription.trim()) newErrors.projectDescription = 'Project Description is required';
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    if (!validate()) return;
+    if (!validate() || status === 'submitting') return;
 
     setStatus('submitting');
-    
-    setTimeout(() => {
-      setStatus('success');
-      setFormData({
-        fullName: '',
-        companyName: '',
-        email: '',
-        phone: '',
-        serviceRequired: '',
-        budgetRange: '',
-        projectDescription: '',
+
+    try {
+      const response = await fetch('/api/consultations', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          type: 'contact',
+          name: formData.fullName.trim(),
+          fullName: formData.fullName.trim(),
+          companyName: formData.companyName.trim(),
+          email: formData.email.trim(),
+          phone: formData.phone.trim(),
+          serviceRequired: formData.serviceRequired,
+          budgetRange: formData.budgetRange,
+          projectDescription: formData.projectDescription.trim(),
+          website: formData.website,
+        }),
       });
-    }, 1500);
+
+      if (!response.ok) {
+        throw new Error('Unable to submit contact form');
+      }
+
+      setStatus('success');
+      setFormData(emptyForm);
+    } catch {
+      setStatus('error');
+    }
   };
 
   return (
@@ -81,6 +100,19 @@ const ContactForm = () => {
       )}
 
       <form onSubmit={handleSubmit} className="contact-form">
+        <div className="honeypot-field" aria-hidden="true">
+          <label htmlFor="contact-website">Website</label>
+          <input
+            id="contact-website"
+            type="text"
+            name="website"
+            tabIndex={-1}
+            autoComplete="off"
+            value={formData.website}
+            onChange={handleChange}
+          />
+        </div>
+
         <div className="form-row">
           <div className="form-group">
             <label className="form-label" htmlFor="fullName">Full Name *</label>
@@ -91,6 +123,7 @@ const ContactForm = () => {
               className={`form-input ${errors.fullName ? 'is-invalid' : ''}`}
               value={formData.fullName}
               onChange={handleChange}
+              disabled={status === 'submitting'}
             />
             {errors.fullName && <span className="error-text">{errors.fullName}</span>}
           </div>
@@ -103,6 +136,7 @@ const ContactForm = () => {
               className="form-input"
               value={formData.companyName}
               onChange={handleChange}
+              disabled={status === 'submitting'}
             />
           </div>
         </div>
@@ -117,6 +151,7 @@ const ContactForm = () => {
               className={`form-input ${errors.email ? 'is-invalid' : ''}`}
               value={formData.email}
               onChange={handleChange}
+              disabled={status === 'submitting'}
             />
             {errors.email && <span className="error-text">{errors.email}</span>}
           </div>
@@ -129,6 +164,7 @@ const ContactForm = () => {
               className={`form-input ${errors.phone ? 'is-invalid' : ''}`}
               value={formData.phone}
               onChange={handleChange}
+              disabled={status === 'submitting'}
             />
             {errors.phone && <span className="error-text">{errors.phone}</span>}
           </div>
@@ -143,10 +179,11 @@ const ContactForm = () => {
               className="form-select"
               value={formData.serviceRequired}
               onChange={handleChange}
+              disabled={status === 'submitting'}
             >
               <option value="">Select a service</option>
               {services && services.map((service) => (
-                <option key={service.id} value={service.id}>{service.title}</option>
+                <option key={service.id} value={service.title}>{service.title}</option>
               ))}
             </select>
           </div>
@@ -158,6 +195,7 @@ const ContactForm = () => {
               className="form-select"
               value={formData.budgetRange}
               onChange={handleChange}
+              disabled={status === 'submitting'}
             >
               <option value="">Select budget range</option>
               <option value="Not sure yet">Not sure yet</option>
@@ -179,6 +217,7 @@ const ContactForm = () => {
             className={`form-textarea ${errors.projectDescription ? 'is-invalid' : ''}`}
             value={formData.projectDescription}
             onChange={handleChange}
+            disabled={status === 'submitting'}
           ></textarea>
           {errors.projectDescription && <span className="error-text">{errors.projectDescription}</span>}
         </div>

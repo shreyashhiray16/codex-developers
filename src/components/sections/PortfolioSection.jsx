@@ -15,7 +15,7 @@ const bgColors = [
 
 const PortfolioSection = () => {
   return (
-    <section id="portfolio" className="section portfolio-section bg-light">
+    <section id="portfolio" className="section portfolio-section page-section-photo">
       <div className="container">
         <ScrollReveal>
           <SectionHeader 
