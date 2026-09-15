@@ -1,5 +1,5 @@
 .portfolio-section {
-  background-color: var(--color-bg-light);
+  --section-bg: url('/backgrounds/solutions-bg.jpg');
   padding: var(--space-24) 0;
 }
 

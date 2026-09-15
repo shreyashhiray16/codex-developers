@@ -1,13 +1,11 @@
-import React, { useEffect } from 'react';
 import ScrollReveal from '../components/ui/ScrollReveal';
 import CTASection from '../components/sections/CTASection';
 import { Briefcase, Eye, Shield, Puzzle, Layout, TrendingUp, Check } from 'lucide-react';
+import { usePageTitle } from '../hooks/usePageTitle';
 import './AboutPage.css';
 
 const AboutPage = () => {
-  useEffect(() => {
-    document.title = 'About Us — Codex Developers';
-  }, []);
+  usePageTitle('About Us — Codex Developers');
 
   const values = [
     {
@@ -52,9 +50,9 @@ const AboutPage = () => {
   ];
 
   return (
-    <main className="about-page">
-      <section className="about-hero">
-        <div className="container">
+    <div className="about-page">
+      <div className="about-body page-section-photo">
+        <div className="container page-section-heading">
           <ScrollReveal>
             <h1>About Codex Developers</h1>
             <p className="subtitle">
@@ -62,12 +60,11 @@ const AboutPage = () => {
             </p>
           </ScrollReveal>
         </div>
-      </section>
 
-      <section className="about-intro bg-white">
+      <section className="about-intro">
         <div className="container">
           <ScrollReveal>
-            <div className="intro-text">
+            <div className="intro-text content-panel">
               <p>
                 Codex Developers helps businesses use technology in a practical, professional, and effective way. From websites that strengthen your online presence to software that simplifies daily operations, we create digital solutions based on real business needs.
               </p>
@@ -79,10 +76,10 @@ const AboutPage = () => {
         </div>
       </section>
 
-      <section className="about-mission bg-light">
+      <section className="about-mission">
         <div className="container">
           <ScrollReveal>
-            <div className="statement-box">
+            <div className="statement-box content-panel">
               <h2>Our Mission</h2>
               <p>
                 To provide practical, professional, and reliable technology solutions that help businesses strengthen their digital presence and improve their daily operations.
@@ -92,10 +89,10 @@ const AboutPage = () => {
         </div>
       </section>
 
-      <section className="about-vision bg-white">
+      <section className="about-vision">
         <div className="container">
           <ScrollReveal>
-            <div className="statement-box">
+            <div className="statement-box content-panel">
               <h2>Our Vision</h2>
               <p>
                 To be a trusted technology partner for businesses across industries — known for delivering solutions that are practical, well-designed, and built to grow with our clients.
@@ -105,7 +102,7 @@ const AboutPage = () => {
         </div>
       </section>
 
-      <section className="about-values bg-light">
+      <section className="about-values">
         <div className="container">
           <ScrollReveal>
             <h2 className="section-title">Our Values</h2>
@@ -124,10 +121,10 @@ const AboutPage = () => {
         </div>
       </section>
 
-      <section className="about-approach bg-white">
+      <section className="about-approach">
         <div className="container">
           <ScrollReveal>
-            <div className="approach-content">
+            <div className="approach-content content-panel">
               <h2 className="section-title">Our Approach</h2>
               <p>
                 We start by understanding your business — the challenges you face, the goals you are working toward, and the audience you serve. From there, we design and develop solutions that are practical, professional, and aligned with how your business actually operates.
@@ -140,7 +137,7 @@ const AboutPage = () => {
         </div>
       </section>
 
-      <section className="about-why-us bg-light">
+      <section className="about-why-us">
         <div className="container">
           <ScrollReveal>
             <div className="why-us-content">
@@ -157,9 +154,10 @@ const AboutPage = () => {
           </ScrollReveal>
         </div>
       </section>
+      </div>
 
       <CTASection />
-    </main>
+    </div>
   );
 };
 

@@ -2,8 +2,11 @@ import React from 'react';
 import './CTASection.css';
 import ScrollReveal from '../ui/ScrollReveal';
 import Button from '../ui/Button';
+import { useConsultation } from '../../context/ConsultationContext';
 
 const CTASection = () => {
+  const { openConsultation } = useConsultation();
+
   return (
     <section id="cta" className="section cta-section">
       <div className="cta-background"></div>
@@ -18,8 +21,8 @@ const CTASection = () => {
           
           <ScrollReveal delay={200}>
             <div className="cta-actions">
-              <Button href="/contact" variant="primary" className="cta-btn-primary">Start a Conversation</Button>
-              <Button href="/contact" variant="outline" className="cta-btn-secondary">Request a Quote</Button>
+              <Button onClick={openConsultation} variant="primary" className="cta-btn-primary">Get a Free Consultation</Button>
+              <Button to="/contact" variant="outline" className="cta-btn-secondary">Start a Conversation</Button>
             </div>
           </ScrollReveal>
         </div>

@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Button from '../ui/Button';
+import { useConsultation } from '../../context/ConsultationContext';
 import './HeroSection.css';
 
 const HeroSection = () => {
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+  const { openConsultation } = useConsultation();
 
   return (
-    <section id="hero" className={`hero-section ${mounted ? 'is-loaded' : ''}`}>
+    <section id="hero" className="hero-section is-loaded">
       <div className="hero-video-bg">
         <video
           className="hero-video"
@@ -15,7 +15,7 @@ const HeroSection = () => {
           loop
           muted
           playsInline
-          preload="auto"
+          preload="metadata"
         >
           <source src="/videos/same_but_with_duration_of_se.mp4" type="video/mp4" />
         </video>
@@ -29,7 +29,7 @@ const HeroSection = () => {
             Codex Developers helps businesses build a powerful online presence and streamline their operations through professional websites, e-commerce platforms, and customized business software.
           </p>
           <div className="hero-actions">
-            <Button variant="primary" size="lg" to="/contact">Get a Free Consultation</Button>
+            <Button variant="primary" size="lg" onClick={openConsultation}>Get a Free Consultation</Button>
             <Button variant="secondary" size="lg" to="/services">Explore Our Services</Button>
           </div>
           <p className="hero-microcopy">

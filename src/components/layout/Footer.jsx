@@ -23,18 +23,26 @@ const Footer = () => {
               Elevating businesses with cutting-edge digital solutions. We build scalable, modern, and high-performance applications.
             </p>
             <div className="social-links">
-              <a href={company.social.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="social-btn">
-                <Linkedin size={20} />
-              </a>
-              <a href={company.social.twitter} target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="social-btn">
-                <Twitter size={20} />
-              </a>
-              <a href={company.social.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="social-btn">
-                <Facebook size={20} />
-              </a>
-              <a href={company.social.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="social-btn">
-                <Instagram size={20} />
-              </a>
+              {company.social.linkedin && company.social.linkedin !== '#' && (
+                <a href={company.social.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="social-btn">
+                  <Linkedin size={20} />
+                </a>
+              )}
+              {company.social.twitter && company.social.twitter !== '#' && (
+                <a href={company.social.twitter} target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="social-btn">
+                  <Twitter size={20} />
+                </a>
+              )}
+              {company.social.facebook && company.social.facebook !== '#' && (
+                <a href={company.social.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="social-btn">
+                  <Facebook size={20} />
+                </a>
+              )}
+              {company.social.instagram && company.social.instagram !== '#' && (
+                <a href={company.social.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="social-btn">
+                  <Instagram size={20} />
+                </a>
+              )}
             </div>
           </div>
 
@@ -90,9 +98,9 @@ const Footer = () => {
         <div className="footer-bottom">
           <p className="copyright">{company.legal.copyright}</p>
           <div className="legal-links">
-            <Link to="/privacy-policy">Privacy Policy</Link>
+            <Link to={company.legal.privacyPolicy}>Privacy Policy</Link>
             <span className="dot-separator">•</span>
-            <Link to="/terms">Terms of Service</Link>
+            <Link to={company.legal.termsOfService}>Terms of Service</Link>
           </div>
         </div>
       </div>

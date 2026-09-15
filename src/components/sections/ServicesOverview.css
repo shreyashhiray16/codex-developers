@@ -1,5 +1,5 @@
 .services-overview {
-  background-color: var(--color-background, #FFFFFF);
+  --section-bg: url('/backgrounds/services-bg.jpg');
   padding: calc(var(--space-20, 5rem) + var(--header-height, 72px) - 16px) 0 var(--space-20, 5rem);
   scroll-margin-top: var(--header-height, 72px);
 }
@@ -16,6 +16,11 @@
   display: flex;
   justify-content: center;
   margin-top: var(--space-8, 2rem);
+}
+
+.services-overview .services-actions .btn-secondary {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(255, 255, 255, 0.8);
 }
 
 /* Responsive */

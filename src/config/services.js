@@ -3,6 +3,7 @@ export const services = [
     id: 'business-website',
     title: 'Business Website Development',
     icon: 'Globe',
+    image: '/services/business-website.png',
     shortDescription:
       'Professional websites designed to establish credibility, present your services clearly, and convert visitors into customers.',
     fullDescription:
@@ -31,6 +32,7 @@ export const services = [
     id: 'landing-page',
     title: 'Landing Page Development',
     icon: 'MousePointerClick',
+    image: '/services/landing-page.png',
     shortDescription:
       'Focused landing pages built for marketing campaigns, lead generation, product launches, and high-conversion goals.',
     fullDescription:
@@ -59,6 +61,7 @@ export const services = [
     id: 'industrial-corporate',
     title: 'Industrial and Corporate Websites',
     icon: 'Building2',
+    image: '/services/industrial-corporate.png',
     shortDescription:
       'Structured multi-page websites designed for manufacturers, industrial companies, and organizations with complex products or services.',
     fullDescription:
@@ -87,6 +90,7 @@ export const services = [
     id: 'ecommerce',
     title: 'E-commerce Website Development',
     icon: 'ShoppingCart',
+    image: '/services/ecommerce.png',
     shortDescription:
       'Secure and user-friendly online stores that help businesses showcase products, manage orders, and sell online.',
     fullDescription:
@@ -115,6 +119,7 @@ export const services = [
     id: 'billing-software',
     title: 'Billing Software',
     icon: 'Receipt',
+    image: '/services/billing-software.png',
     shortDescription:
       'Practical offline billing solutions designed to simplify invoicing, sales records, and day-to-day business transactions.',
     fullDescription:
@@ -143,6 +148,7 @@ export const services = [
     id: 'inventory-management',
     title: 'Inventory Management Software',
     icon: 'Package',
+    image: '/services/inventory-management.png',
     shortDescription:
       'Business software that helps you track stock, products, purchases, sales, and inventory movement more efficiently.',
     fullDescription:
@@ -171,6 +177,7 @@ export const services = [
     id: 'custom-software',
     title: 'Custom Business Software',
     icon: 'Cog',
+    image: '/services/custom-software.png',
     shortDescription:
       'Customized software solutions created around your company\'s unique workflows, requirements, and operational challenges.',
     fullDescription:

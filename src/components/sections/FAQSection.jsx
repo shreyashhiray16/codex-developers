@@ -8,7 +8,7 @@ import Button from '../ui/Button';
 
 const FAQSection = () => {
   return (
-    <section id="faq" className="section faq-section bg-white">
+    <section id="faq" className="section faq-section page-section-photo">
       <div className="container container--narrow">
         <ScrollReveal>
           <SectionHeader 

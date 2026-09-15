@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
 import { solutions } from '../config/solutions';
 import ScrollReveal from '../components/ui/ScrollReveal';
 import Button from '../components/ui/Button';
 import CTASection from '../components/sections/CTASection';
 import * as Icons from 'lucide-react';
+import { usePageTitle } from '../hooks/usePageTitle';
 import './SolutionsPage.css';
 
 const DynamicIcon = ({ name, className }) => {
@@ -12,14 +12,12 @@ const DynamicIcon = ({ name, className }) => {
 };
 
 const SolutionsPage = () => {
-  useEffect(() => {
-    document.title = 'Solutions — Codex Developers';
-  }, []);
+  usePageTitle('Solutions — Codex Developers');
 
   return (
-    <main className="solutions-page">
-      <section className="solutions-hero">
-        <div className="container">
+    <div className="solutions-page">
+      <section className="solutions-list page-section-photo">
+        <div className="container page-section-heading">
           <ScrollReveal>
             <h1>Solutions</h1>
             <p className="subtitle">
@@ -27,9 +25,7 @@ const SolutionsPage = () => {
             </p>
           </ScrollReveal>
         </div>
-      </section>
 
-      <section className="solutions-list">
         <div className="container">
           <div className="solutions-grid">
             {solutions.map((solution, index) => (
@@ -44,24 +40,25 @@ const SolutionsPage = () => {
 
                   <div className="solution-body">
                     <div className="challenge-block">
-                      <span className="block-label">The Challenge</span>
+                      <span className="block-label">Challenge</span>
                       <p>{solution.problem}</p>
                     </div>
-
                     <div className="solution-block">
-                      <span className="block-label">How We Help</span>
+                      <span className="block-label">Solution</span>
                       <p>{solution.solution}</p>
                     </div>
                   </div>
 
                   <div className="solution-footer">
-                    <div className="related-services">
-                      {solution.services && solution.services.map((svc, idx) => (
-                        <span key={idx} className="service-tag">{svc}</span>
-                      ))}
-                    </div>
+                    {solution.services && (
+                      <div className="related-services">
+                        {solution.services.map((service) => (
+                          <span key={service} className="service-tag">{service}</span>
+                        ))}
+                      </div>
+                    )}
                     <Button href="/contact" variant="secondary" className="solution-btn">
-                      Get Started
+                      Discuss This Solution
                     </Button>
                   </div>
                 </div>
@@ -72,7 +69,7 @@ const SolutionsPage = () => {
       </section>
 
       <CTASection />
-    </main>
+    </div>
   );
 };
 

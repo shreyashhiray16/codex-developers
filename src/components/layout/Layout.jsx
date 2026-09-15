@@ -3,12 +3,14 @@ import { useLocation } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import FloatingButtons from './FloatingButtons';
+import ConsultationModal from '../ui/ConsultationModal';
+import { ConsultationProvider, useConsultation } from '../../context/ConsultationContext';
 
-const Layout = ({ children }) => {
+const LayoutShell = ({ children }) => {
   const location = useLocation();
+  const { isOpen, closeConsultation } = useConsultation();
 
   useEffect(() => {
-    // Only scroll to top if there's no hash in the URL
     if (!location.hash) {
       window.scrollTo({
         top: 0,
@@ -26,8 +28,15 @@ const Layout = ({ children }) => {
       </main>
       <FloatingButtons />
       <Footer />
+      <ConsultationModal isOpen={isOpen} onClose={closeConsultation} />
     </div>
   );
 };
+
+const Layout = ({ children }) => (
+  <ConsultationProvider>
+    <LayoutShell>{children}</LayoutShell>
+  </ConsultationProvider>
+);
 
 export default Layout;

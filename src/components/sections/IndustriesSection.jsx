@@ -8,7 +8,7 @@ import Button from '../ui/Button';
 
 const IndustriesSection = () => {
   return (
-    <section id="industries" className="section industries-section bg-white">
+    <section id="industries" className="section industries-section page-section-photo">
       <div className="container">
         <ScrollReveal>
           <SectionHeader 

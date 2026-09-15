@@ -1,6 +1,10 @@
 .solutions-section {
-  background-color: var(--color-bg-light, #F9FAFB);
+  --section-bg: url('/backgrounds/solutions-bg.jpg');
   padding: var(--space-20, 5rem) 0;
+}
+
+.solutions-section.section--light {
+  background-color: transparent;
 }
 
 .solutions-grid {

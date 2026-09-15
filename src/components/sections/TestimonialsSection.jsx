@@ -7,7 +7,7 @@ import { Quote, Star } from 'lucide-react';
 
 const TestimonialsSection = () => {
   return (
-    <section id="testimonials" className="section testimonials-section bg-white">
+    <section id="testimonials" className="section testimonials-section page-section-photo">
       <div className="container">
         <ScrollReveal>
           <SectionHeader 
